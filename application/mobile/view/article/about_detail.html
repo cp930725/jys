@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header2" /}
+</head>
+<body class="graybg">
+    <div id="container" class="logbg">
+        <div class="log_title">
+            <span class="back"><a href="javascript:history.go(-1)"></a></span>
+            {$data.title}-{:lang('详情页')}
+        </div>
+        <div class="nwdtsbox">
+            <div class="nwtop">
+                <h3 style="line-height: 22px;">{$data.title}</h3>
+                <p class="time">{:lang('发布时间')}：{$data.addtime|date="Y-m-d H:i:s",###}</p>
+                <p class="time">{:lang('发布人')}：{:config('web_title')}</p>
+            </div>
+            <div class="nwbot">
+                 {$data['content']}
+            </div>
+        </div>
+        {include file="public/footer" /}
+    </div>
+</body>
+</html>

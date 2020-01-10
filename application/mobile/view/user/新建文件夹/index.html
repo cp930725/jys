@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header2" /}
+    <script type="text/javascript" src="/layer/layer.js"></script>
+    <script type="text/javascript" src="/Home/js/jquery.cookies.2.2.0.js"></script>
+</head>
+<body class="blackbg">
+    <div id="container" class="logbg">
+        <div class="log_title">
+            {:lang('me')}
+        </div>
+        <div class="useifor">
+            <!-- ID：{$user.id}<br/> -->
+
+            {:lang('account')}:{$user.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {:lang('name')}:{$user.truename}
+        </div>
+        <div class="usermenu">
+            <ul>
+                <li>
+                    <a href="{:url('Finance/index')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon1.png"></span>
+                         {:lang('总资产')}
+                         <span class="price">{$cny['zj']}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('User/safety')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon2.png"></span>
+                         {:lang('安全设置')}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+           <div class="usermenu">
+            <ul>
+                <li>
+                    <a href="{:url('Finance/mytj')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon9.png"></span>
+                         {:lang('我的推广链接')}
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Finance/mywd')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon11.png"></span>
+                         {:lang('我的推荐')}
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Finance/myjp')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon2.png"></span>
+                         {:lang('推荐奖励')}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="usermenu">
+            <ul>
+                <li>
+                    <a href="{:url('Finance/myzr_coin_list')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon7.png"></span>
+                         {:lang('币种转入')}
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Finance/myzc_coin_list')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon8.png"></span>
+                         {:lang('币种转出')}
+                    </a>
+                </li>
+
+               <!--  <li>
+                    <a href="{:url('Finance/myuser_coin_list')}">
+                        <span class="imgbox"><img src="/mobile/images/home2.png"></span>
+                        {:lang(' 会员互转')}
+                    </a>
+                </li> -->
+
+                <li>
+                    <a href="{:url('User/qianbao_coin_list')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon13.png"></span>
+                         {:lang('钱包地址管理')}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="usermenu">
+            <ul>
+                <li>
+                    <a href="{:url('Finance/mywt_coin_list')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon9.png"></span>
+                         {:lang('委托管理')}
+                    </a>
+                </li>
+                <li>
+                    <a href="{:url('Finance/mycj_coin_list')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon10.png"></span>
+                         {:lang('成交记录')}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- <div class="usermenu">
+            <ul>
+                <li>
+                    <a href="{:url('Article/about')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon11.png"></span>
+                         关于平台
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+
+        <div class="usermenu">
+            <ul>
+                <li>
+                    <a href="{:url('Login/loginout')}">
+                        <span class="imgbox"><img src="/mobile/images/usericon12.png"></span>
+                        {:lang('安全退出')}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {include file="public/footer" /}
+    </div>
+
+
+</body>
+</html>

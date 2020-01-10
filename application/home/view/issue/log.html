@@ -1,0 +1,144 @@
+{include file="public/header_new" /}
+<link rel="stylesheet" href="{:stamp('/home/ecshe_css/user.css')}">
+
+<style>
+.crumbs{
+	margin: 0 auto;
+	margin-top: 35px;
+	padding: 0 30px;
+	width: 1200px;
+	height: 60px;
+	line-height: 60px;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+.crumbs li{
+	float: left;
+	font-size: 16px;
+	color: #575757;
+}
+.crumbs li.on,.crumbs li.on a{
+	color: #018bc0;
+}
+.crumbs li span{
+	margin: 0 10px;
+}
+</style>
+
+<div class="crumbs">
+	<ul>
+		<li><a href="{:url('Issue/index')}"> {:lang('新币预热')}</a><span>&gt;</span></li>
+		<li class="on"> {:lang('我的参与')}</li>
+	</ul>
+</div>
+
+<div class="UserBox" style="margin-top:20px;margin-bottom:40px;">
+	<div class="SettingRight" style="width: 100%;">
+		<div class="titles">
+			<h3 class="fl"> {:lang('我的参与')}</h3>
+		</div>
+      
+      
+		<div class="Column_LogonLog">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="title">
+					<th class=""> {:lang('项目名称')}</th>
+					<th class=""> {:lang('币种')}</th>
+					<th class=""> {:lang('单价')}</th>
+					<th class=""> {:lang('数量')}</th>
+					<th class=""> {:lang('支付总额')}</th>
+					<th class=""> {:lang('解冻间隔')}</th>
+					<th class=""> {:lang('参与时间')}</th>
+					<th class=""> {:lang('解冻状态')}</th>
+					<th class=""> {:lang('上次解冻')}</th>
+					<th class=""> {:lang('状态')}</th>
+                  <th class=""> {:lang('操作')}</th>
+				</tr>
+				{volist name="list" id="vo"}
+					<tr>
+						<td>{$vo.name}</td>
+						<td>{$C['coin'][$vo['coinname']]['title']}</td>
+						<td>{$vo['price']*1} {$C['coin'][$vo['buycoin']]['title']}</td>
+						<td>{$vo['num']*1} {$C['coin'][$vo['coinname']]['title']}</td>
+						<td>{$vo['mum']*1} {$C['coin'][$vo['buycoin']]['title']}</td>
+						<td>{$vo['jian']}</td>
+						<td>{$vo.addtime|addtime}</td>
+					     <td>{eq name="vo['unlock']" value="$vo['ci']"}已完成{else /}{$vo.unlock}/{$vo.ci}{/eq}</td>
+						<td>{$vo.endtime|addtime}</td>
+						<td>{eq name="vo.status" value="1"}完成{else /}解冻中{/eq}</td>
+                         <td><a href="{:url('Issue/unlock',array('id'=>$vo['id']))}"> ," {:lang('立即解冻')}">  </td>
+                                   
+					</tr>
+				{/volist}
+			</table>
+			<div class="pages">{$page}</div>
+		</div>
+	</div>
+  
+  
+
+  
+  
+</div>
+<script>
+$("title").html(" {:lang('我的参与')} - {:config('web_title')}");
+  
+  
+  
+    var id = $('#ids').val();
+  /*  $.post("{:url('Issue/ajax_log_detail')}", {id: id}, function (data) {
+        if (data) {
+            $('#addtime').val(' {:lang('创建时间')}：'+ data.addtime);
+
+            // if(data.unlock > 0){
+            //     $('#endtime').val('上次解冻时间：' + data.endtime);
+            // }else{
+            //     $('#endtime').val('首次解冻时间：' + data.endtime);
+            // }
+            $('#endtime').val(' {:lang('下次解冻时间')}：' + data.endtime);
+            $('#name').val(' {:lang('认购名称')}：' + data.name);
+            $('#price').val(' {:lang('认购价格')}：' + data.price);
+            $('#num').val(' {:lang('认购数量')}：' + data.num);
+            $('#mum').val(' {:lang('认购总价')}：' + data.mum);
+            $('#unlock').val(' {:lang('解冻次数')}：' + data.unlock + '/' + data.ci);
+            $('#shen').val(' {:lang('剩余冻结')}：' + data.shen);
+
+            if(data.status){
+                $('#status').val(' {:lang('状态：已完成')}');
+                $('#sub').val(' {:lang('已完成解冻')}');
+                $('#sub').css('background','#69655F');
+                $('#sub').attr('disabled','disabled');
+
+            }else{
+                $('#status').val(' {:lang('状态：解冻中')}');
+            }
+        } else {
+            layer.msg(data.msg, {icon: 2});
+        }
+    }, "json");*/
+
+    $('#sub').click(function () {
+
+        $.post("{:url('Issue/unlock')}", {id: id}, function (data) {
+             console.log(data);
+            if (data.code == 1) {
+                layer.msg(data.msg, {icon: 1});
+                    window.location = "{:url('Issue/log')}";
+            } else {
+                // layer.msg('2222');
+                layer.msg(data.msg, {icon: 2});
+            }
+        }, "json");
+    });
+  
+  
+</script>
+{include file="public/footer" /}
+
+
+
+
+
+
+
+     

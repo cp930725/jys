@@ -1,0 +1,63 @@
+{include file="public/header_new" /}
+<link rel="stylesheet" href="/home/ecshe_css/fin.css">
+
+<div class="infoBox">
+	{include file="finance/top" /}
+</div>
+
+<div class="UserBox" style="margin-top:20px;margin-bottom:40px;">
+	<div class="fl SettingLeft">
+		 {include file="finance/left2" /}
+	</div>
+	<div class="fr SettingRight">
+		<div class="titles">
+			<h3 class="fl">{:lang('资产列表')}</h3>
+			<span class="fr TotalAssets">{:lang('总资产折合')}<b>{$cny['zj']}</b>CNY</span>
+		</div>
+
+		<div class="Column_AssetsList">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="ColumnTitle">
+					<th width="13%" align="center">{:lang('币种')}</th>
+					<th width="18%" align="center">{:lang('可用')}</th>
+					<th width="18%" align="center">{:lang('冻结')}</th>
+					<th width="27%" align="center">{:lang('总计')}</th>
+					<th width="24%" align="center">&nbsp;</th>
+				</tr>
+				{volist name="coinList" id="vo" key="k"}
+					<tr>
+						<td>
+							<img class="iconimg" src="/uploadcoin/{$vo['img']}">
+							<span class="sort-coinname">{$vo['title']}</span>
+						</td>
+						<td><b>{$vo['xnb']}</b></td>
+						<td><b>{$vo['xnbd']}</b></td>
+						<td><b>{$vo['xnbz']}</b><span class="zhehe">≈ {$vo['zhehe']} CNY</span></td>
+						<td class="lasts">
+							<?php $acny = config('app.anchor_cny'); ?>
+							{eq name="vo.name" value="$acny"}
+								<a class="btns" href="{:url('Exchange/index')}">{:lang('充值')}</a>
+								<a class="btns" href="{:url('Exchange/index')}">{:lang('提现')}</a>
+							{else/}
+								{eq name="vo.type" value="ptb">{else/}
+									{eq name="vo.zr_jz" value="1"}
+										<a class="btns" href="{:url('Finance/myzr/coin/'.$vo['name'])}">{:lang('转入')}</a>
+									{/eq}
+									{eq name="vo.zc_jz" value="1"}
+										<a class="btns" href="{:url('Finance/myzc/coin/'.$vo['name'])}">{:lang('转出')}</a>
+									{/eq}
+								{/eq}
+							{/eq}
+						</td>
+					</tr>
+				{/volist}
+			</table>
+		</div>
+	</div>
+</div>
+
+<script>
+$("title").html("{:lang('账户信息')} - {:config('web_title')}");
+$('#menu_0').addClass('on');
+</script>
+{include file="public/footer" /}

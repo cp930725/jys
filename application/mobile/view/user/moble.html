@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header2" /}
+    <script type="text/javascript" src="/layer/layer.js"></script>
+    <script type="text/javascript" src="/Home/js/jquery.cookies.2.2.0.js"></script>
+</head>
+<body class="blackbg">
+    <div id="container" class="logbg">
+        <div class="log_title">
+            <span class="back"><a href="javascript:history.go(-1)"></a></span>
+            {:lang('手机绑定')}
+        </div>
+        <div class="logbot">
+            <form>
+                <p style="font-size:18px;line-height:20px;color:#ff8800;margin-top: 15px;">
+                           {:lang('手机号码')}：
+                </p>
+                <input type="text" value="{$user.mobile}" class="logipt"  id="ga" readonly>
+
+                <p style="font-size:18px;line-height:20px;color:#ff8800;margin-top: 15px;">
+                           {:lang('绑定时间：')}{$user.mobiletime|date="Y-m-d H:i:s"}
+                </p>
+            </form>
+        </div>  
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{include file="public/header_new" /}
+<link rel="stylesheet" href="/home/ecshe_css/user.css">
+
+<div class="infoBox">
+	{include file="public/top" /}
+</div>
+
+<div class="UserBox" style="margin-top:20px;margin-bottom:40px;">
+	<div class="fl SettingLeft">
+		 {include file="user/left" /}
+	</div>
+	<div class="fr SettingRight">
+		<div class="titles"><h3> {:lang('登录日志')}</h3></div>
+		<div class="Column_LogonLog">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr class="title">
+					<th> {:lang('操作时间')}</th>
+					<th> {:lang('操作类型')}</th>
+					<th> {:lang('操作备注')}</th>
+					<th> {:lang('操作')}ip</th>
+					<th> {:lang('操作地址')}</th>
+					<th> {:lang('状态')}</th>
+				</tr>
+				{volist name="list" id="vo"}
+					<tr>
+						<td>{$vo.addtime|addtime}</td>
+						<td> {:lang($vo['type'])}</td>
+						<td> {:lang($vo['remark'])}</td>
+						<td>{$vo.addip}</td>
+						<td> {:lang($vo['addr'])}</td>
+						<td>
+							{eq name="vo.status" value="0"}
+								<font color="violet"> {:lang('出错')}</font>
+							{/eq}
+							{eq name="vo.status" value="1"}  {:lang('正常')}{/eq}
+							{eq name="vo.status" value="2"}
+								<font color="red"> {:lang('异常')}</font>
+							{/eq}
+						</td>
+					</tr>
+				{/volist}
+			</table>
+			<div class="pages">{$page|raw}</div>
+		</div>
+	</div>
+</div>
+<script>
+$("#type-selectTest,#market-selectTest").change(function() {
+    var type = $("#type-selectTest option:selected").val();
+    var market = $("#market-selectTest option:selected").val();
+    window.location = '/mobile/Finance/mycj/type/' + type + '/market/' + market + '.html';
+});
+</script>
+<script>
+$("title").html(" {:lang('登录日志')} - {:config('web_title')}");
+$('#menu_3').addClass('on');
+</script>
+{include file="public/footer" /}

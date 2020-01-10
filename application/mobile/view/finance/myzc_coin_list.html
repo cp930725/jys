@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header2" /}
+</head>
+<body class="blackbg">
+    <div id="container" class="logbg">
+        <div class="log_title">
+            <span class="back"><a href="javascript:history.go(-1)"></a></span>
+            {:lang('币种转出')}/{:lang('币种列表')}
+        </div>
+        <ul class="tdlist">
+            {volist name="coin_list" id="vo"}
+                <li>
+                    <a href="/Finance/myzc/coin/{$vo['name']}">
+                        <div class="xsltop">
+                            <img src="/Upload/coin/{$vo['img']}">{:lang($vo['title'])}({$vo['name']|strtoupper=###})
+                        </div>
+                    </a>
+                </li>
+            {/volist}
+        </ul>
+    </div>
+</body>
+</html>

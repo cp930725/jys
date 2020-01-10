@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {include file="public/head" /}
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0, shrink-to-fit=no">
+    <title>TM数字资产-全球区块链交易所-数字货币交易所,比特币交易所,以太坊交易所LBEX交易所-</title>
+    <meta name="Keywords" content="TM数字资产">
+    <meta name="Description" content="TM数字资产">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.css">
+    <link rel="stylesheet" href="/static/css/font_knvxvcnl354uz0k9.css">
+<link rel="stylesheet" type="text/css" href="/static/css/dropload.css" />
+<style>
+    body {
+        font-size: 14px;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-weight: 400;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .dropload-down {
+        width: 100%;
+    }
+
+    .search ul li {
+        float: left;
+        width: 25%;
+        text-align: center;
+    }
+
+    .search ul li select {
+        width: 100%;
+        text-align: center;
+        height: 40.26px;
+        background-color: rgba(223, 224, 225, 1);
+        border: 0;
+        border-right: 1px solid #fff;
+    }
+
+    .czjl_list ul li {
+        width: calc(100% -   0.64rem);
+        height: 4.373333rem;
+        border-radius: 0.133333rem;
+        margin: 0.566667rem 0.32rem 0 0.32rem;
+        background: #ffffff;
+    }
+
+    .czjl_list ul li {
+        height: 152.57px;
+    }
+
+    .czjl_list ul li .top {
+        width: calc(100% -   0.133333rem);
+        height: 41px;
+        line-height: 80px;
+        margin-left: 0.066667rem;
+        margin-right: 0.066667rem;
+        border-bottom: solid 1px #f3f5f7;
+        float: left;
+    }
+
+    .czjl_list ul li .top .name {
+        height: 40px;
+        line-height: 42px;
+        font-size: 12px;
+        color: #f08600;
+        float: left;
+        margin-left: 0.2rem;
+    }
+
+    .czjl_list ul li .top .input {
+        width: 60px;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 12px;
+        background: #f08600;
+        font-size: 12px;
+        color: #ffffff;
+        text-align: center;
+        float: right;
+        margin-top: 0.293333rem;
+        margin-right: 0.066667rem;
+    }
+
+    .czjl_list ul li .center2 {
+        width: calc(100% -   0.133333rem);
+        height: 70.5px;
+        float: left;
+        border-bottom: solid 1px #f3f5f7;
+    }
+
+    .czjl_list ul li .center2 {
+        height: 83.5px;
+    }
+
+    .search ul {
+        padding-left: 0;
+    }
+
+    .czjl_list ul li .center2 .left {
+        height: 50px;
+        float: left;
+        text-align: left;
+        margin-left: 0.133333rem;
+    }
+
+    .czjl_list ul li .center2 .left .text1 {
+        font-size: 12px;
+        color: #5c5d5e;
+        margin-top: 0.16rem;
+    }
+
+    .czjl_list ul li .center2 .left .text2 {
+        font-size: 12px;
+        color: #5c5d5e;
+        margin-top: 0.133333rem;
+    }
+
+    .czjl_list ul li .center2 .right {
+        height: 50px;
+        float: right;
+        text-align: right;
+        margin-right: 0.133333rem;
+    }
+
+    .czjl_list ul li .center2 .right .text1 {
+        font-size: 12px;
+        color: #2b2b2b;
+        margin-top: 0.16rem;
+    }
+
+    .czjl_list ul li .center2 .right .text2 {
+        font-size: 12px;
+        color: #2b2b2b;
+        margin-top: 0.133333rem;
+    }
+
+    .czjl_list ul li .bottom {
+        width: 100%;
+        height: 22.5px;
+        line-height: 31.5px;;
+        float: left;
+    }
+
+    .czjl_list ul li .bottom .left {
+        font-size: 12px;
+        color: #2b2b2b;
+        float: left;
+        margin-left: 0.133333rem;
+    }
+
+    .czjl_list ul li .bottom .right {
+        font-size: 12px;
+        color: #5c5d5e;
+        float: right;
+        margin-right: 0.133333rem;
+    }
+
+    .czjl_list ul li .bottom .right {
+        margin-left: 0.233333rem;
+        margin-right: 0.233333rem;
+    }
+</style>
+<body class="bg-gray    ">
+<header>
+    <div class="bar-top">
+        <div style="position: relative;">
+				<span class="iconfont icon-left"
+                      onclick="javascript:history.back();"></span>
+            <div>OTC交易</div>
+            <a href="{:url('Otc/sell')}"
+               style="position: absolute; top: 8px; color: #fff;">出售</a> <input
+                type="hidden" id="status" value=""> <input
+                type="hidden" id="market" value=""> <input
+                type="hidden" id="type" value="">
+        </div>
+    </div>
+</header>
+<div class="search">
+    <ul>
+        <li><select id="searchType">
+            <option value="1">搜索</option>
+
+        </select></li>
+        <li><select id="country">
+            <option value="1">CN （中国）</option><option value="2">US （美国）</option><option value="3">AU （澳大利亚）</option><option value="4">JP （日本）</option><option value="5">KR （韩国）</option><option value="6">CA （加拿大）</option><option value="7">FR （法国）</option><option value="8">IN （印度）</option><option value="9">RU （俄罗斯）</option><option value="10">DE （德国）</option><option value="11">GB （英国）</option><option value="12">HK （香港）</option><option value="13">BR （巴西）</option><option value="14">ID （印尼）</option><option value="15">PH （菲律宾）</option>			</select></li>
+        <li><select id="sellCoin">
+            <option value="">币种</option>
+            <option value="39">USDT</option><option value="42">GOOC</option><option value="44">XMR</option><option value="45">ECO</option><option value="51">BV</option>			</select></li>
+        <li><select style="border: 0;" id="payType">
+            <option value="">付款方式</option>
+            <option value="2">银行转账</option><option value="3">支付宝</option><option value="4">微信支付</option>			</select></li>
+        <div style="clear: both;"></div>
+    </ul>
+</div>
+<div class="container2 czjl_list">
+    <div class="lists2">
+        <ul id="cc">
+
+        </ul>
+    </div>
+</div>
+{include file="public/footer" /}
+
+<script src="/static/js/jquery-3.2.1.min.js"></script>
+
+<script>
+    $(function(){
+        /* $('.container2').dropload({
+            scrollArea : window,
+            loadDownFn : function(me){
+                $.ajax({
+                    type: 'GET',
+                    url: "/Ctrade/getLazywt.html",
+                    data:{"type":type,"market":market,"status":status,"page":document.getElementById("pageys").value},
+                    dataType: 'json',
+                    success: function(data){
+                        var result = '';
+                        if(data['page']==0){
+                            me.noData();
+                        }else{
+                            result +=data['content'];
+                        }
+                        document.getElementById("pageys").value=data['page'];
+                         setTimeout(function(){
+                            $('.lists2').append(result);
+                            // 每次数据加载完，必须重置
+                            me.resetload();
+                        },1000);
+                    },
+                    error: function(xhr, type){
+                        //alert('信息异常，请刷新后重试!');
+                        // 即使加载出错，也得重置
+                        dropload.resetload();
+                    }
+                });
+            }
+        }); */
+        var page = 1,
+            limit = 5;
+        $(document).scroll(function() {
+            if ($('#order-list').children().length >=5) {
+                if ($(document).height() <= ($(window).scrollTop() + $(window).height() + 10)) {
+                    $('#refresh').removeClass('d-none');
+                    deal(page, limit);
+                    page++;
+                } else {
+                    $('#refresh').addClass('d-none');
+                }
+            }
+        });
+        deal(page, limit);
+        $('select').change(function(){
+            deal(page, limit);
+        })
+        $.post("/mobile/Ajax/checkorder.html", {
+        }, function (data) {
+            if(data.status == 1){
+                $('#leftnotice').css('opacity', 1);
+            }
+        }, "json");
+    });
+
+    function deal(page, limit)
+    {
+        //alert($("#sellCoin option:selected").val());
+        var param = {};
+        param.page = page;
+        param.limit = limit;
+        param.location = $("#country").find("option:selected").val();
+        ///param.coin= $("#coin").find("option:selected").val();
+        param.pay_method = $("#payType").val();
+        param.coin = $("#sellCoin").find("option:selected").val();
+        $.post("/mobile/otc/getSell",param,function(msg){
+            eval("var data="+msg);
+            //判断返回数据是否正常
+            if(data.code==0)
+            {
+                var str='';
+                $(data.data2).each(function(k,v){
+                    ///
+                    if (v.remain_num > 0) {
+
+                        str+='<li>';
+                        str+='<div class="top">';
+                        str+='	<div class="name">'+v.price+' '+v.currency+'</div>';
+                        str+=	'<div class="input" onclick="buyBtc('+v.type+','+v.id+')"><span>购买</span></div>';
+                        str+='</div>';
+                        str+='<div class="center2">';
+                        str+='	<div class="left">';
+                        str+='		<div class="text1">付款方式</div>';
+                        str+='		<div class="text2">限额</div>';
+                        str+='		<div class="text2">出售币种</div>';
+                        str+='		<div class="text2">剩余数量</div>';
+                        str+='	</div>';
+                        str+='	<div class="right">';
+                        str+='		<div class="text1">'+v.pay_name+'</div>';
+                        str+='		<div class="text2">'+v.min_limit+'-'+v.max_limit+' '+v.currency+'</div>';
+                        var coinname=v.coin.toLocaleUpperCase();
+                        str+='		<div class="text2">'+coinname+'</div>';
+                        str+='		<div class="text2">'+v.remain_num+'</div>';
+                        str+='	</div>';
+                        str+='</div>';
+                        str+='<div class="bottom">';
+                        str+='	<div class="left">'+phonedo(v.username)+'</div>';
+                        str+='  <img src="/static/picture/merchant.png" style="width:34px;"/>';
+                        var transact=v.transact ? v.transact : 0;
+                        var goodcomm=v.goodcomm ? v.goodcomm : 0;
+                        str+='	<div class="right">信任'+v.trust+'</div>';
+                        str+='	<div class="right">好评度  '+goodcomm+'%</div>';
+                        //str+='	<div class="right">交易 '+transact+'</div>';
+                        str+='</div>';
+                        str+='</li>';
+                    }
+
+                });
+                //var str='';
+                $(data.data).each(function(k,v){
+                    ///
+                    if (v.remain_num > 0) {
+
+                    var pay_name;
+                    if (v.pay == 0) {
+                        pay_name = '微信';
+                    } else if (v.pay == 1) {
+                        pay_name = '支付宝';
+                    } else {
+                        pay_name = '银行卡转账';
+                    }
+                        str+='<li>';
+                        str+='<div class="top">';
+                        str+='	<div class="name">'+v.price+'CNY</div>';
+                        str+=	'<div class="input" onclick="buyBtc('+v.id+')"><span>购买</span></div>';
+                        str+='</div>';
+                        str+='<div class="center2">';
+                        str+='	<div class="left">';
+                        str+='		<div class="text1">付款方式</div>';
+                        str+='		<div class="text2">限额</div>';
+                        str+='		<div class="text2">出售币种</div>';
+                        str+='		<div class="text2">剩余数量</div>';
+                        str+='	</div>';
+                        str+='	<div class="right">';
+                        str+='		<div class="text1">'+pay_name+'</div>';
+                        str+='		<div class="text2">'+v.min+'-'+v.max+' CNY</div>';
+                        var coinname=v.coin.toLocaleUpperCase();
+                        str+='		<div class="text2">'+coinname+'</div>';
+                        str+='		<div class="text2">'+v.remain_num+'</div>';
+                        str+='	</div>';
+                        str+='</div>';
+                        str+='<div class="bottom">';
+                        str+='	<div class="left">'+phonedo(v.username)+'</div>';
+                        var transact=v.transact ? v.transact : 0;
+                        var goodcomm=v.goodcomm ? v.goodcomm : 0;
+                        str+='	<div class="right">信任'+v.trust+'</div>';
+                        str+='	<div class="right">好评度  '+goodcomm+'%</div>';
+                        //str+='	<div class="right">交易 '+transact+'</div>';
+                        str+='</div>';
+                        str+='</li>';
+                    }
+
+                });
+                //将数据添加到页面
+                $('#cc').html(str);
+            }else{
+                alert(data.errorMsg);
+            }
+        });
+    }
+    function phonedo(phone) {
+        return phone.substr(0, 3) + '****' + phone.substr(7);
+    }
+    function buyBtc(id) {
+        window.location.href='/mobile/Otc/buy/id/'+id;
+    }
+    function cancel(id){
+        $.post("/Trade/chexiao.html",{id : id },function(data){
+            $.msg(data.info,function () {
+                window.location=window.location.href;
+            });
+        });
+    }
+</script>
+
+</body>
+</html>

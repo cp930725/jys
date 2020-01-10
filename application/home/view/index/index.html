@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit">
+		<title>数字资产交易</title>
+		<meta name="Keywords" content="数字资产交易">
+		<meta name="Description" content="数字资产交易">
+		<link rel="stylesheet" type="text/css" href="/home/static/css/main.css">
+		<script type="text/javascript" src="/home/static/js/jquery-1.12.0.min.js"></script>
+		<script type="text/javascript" src="/home/static/js/jquery.superslide.2.1.1.js"></script>
+		<script type="text/javascript" src="/home/static/js/jquery.cookies.2.2.0.js"></script>
+		<script type="text/javascript" src="/home/static/js/layer.js"></script>
+	</head>
+	<body>
+		<div class="menu-tabs">
+			<a class="logo" href="/"><img src="/home/static/picture/logo.png" /></a>
+			<div class="tabs">
+				<a href="/">首页</a><a href="{:url('Trade/index')}">币币交易</a><a href="{:url('Exchange/index')}">OTC交易</a><a href="{:url('MyExchange/index')}">我的OTC</a><a href="{:url('Financing/index')}">币生币</a><a href="{:url('Issue/index')}">新币预热</a><a href="{:url('Vote/index')}">投票上币</a><a href="{:url('Support/index')}">帮助中心</a><a href="{:url('Support/articles' ,array('cid' => 6, 'id' => 22))}">上币申请</a><a href="{:url('Support/articles' ,array('cid' => 6, 'id' => 16))}">购买QQ  3131370039</a>			</div>
+			
+			<div class="r-box">
+				<div class="language">
+					<img src="/home/static/picture/icon_language.png" />
+                                        <label>简体中文</label>
+					<img class="arrow-down" src="/home/static/picture/icon_arrow_down.png" />
+				</div>
+									<a class="login" href="{:url('Login/index')}">登录</a>
+					<a class="register" href="{:url('Login/register')}">注册</a>			</div>
+			<div class="language-box">
+				<p><a href="/Index/index/LANG/en-us.html">English</a></p>
+				<p><a href="/Index/index/LANG/zh-cn.html">中文简体</a></p>
+			</div>
+			<div class="uuser-box">
+				<p><a href="/finance/index.html">财务中心</a></p>
+				<p><a href="/User/index.html">安全中心</a></p>
+				<p><a href="/Login/loginout.html">退出</a></p>
+			</div>
+		</div>
+<link rel="stylesheet" href="/home/static/css/swiper-4.3.3.min.css">
+<link rel="stylesheet" type="text/css" href="/home/static/css/style.css">
+<script src="/home/static/js/touchslide.1.1.js"></script>
+	
+<style>
+	body {background:#171a25;}
+</style>
+
+<div class="banner">
+
+	<div class="banner" id="banner1" style="padding-top:0px;padding-bottom:0px;">
+		<div class="bd">
+			<ul>
+				<li><a href="/Support/index/articles/cid/6/id/16.html"><img src="/home/static/picture/a1.jpg" ></a></li>
+				<li><a href="/Support/index/articles/cid/6/id/16.html"><img src="/home/static/picture/a2.jpg" ></a></li>
+				<li><a href="/Support/index/articles/cid/6/id/16.html"><img src="/home/static/picture/a3.jpg" ></a></li>
+			</ul>
+		</div>
+		
+		<div class="hd">
+			<ul>              
+				<li></li>
+				<li></li>
+				<li></li>   
+			</ul> 
+		</div>
+		
+		
+
+</div>
+<script type="text/javascript">
+	TouchSlide({
+		slideCell:"#banner1",
+		titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+		mainCell:".bd ul",
+		effect:"left",
+		autoPlay:true,//自动播放
+		autoPage:true, //自动分页
+		switchLoad:"_src", //切换加载，真实图片路径为"_src"
+		interTime:3000,
+		delayTime:600
+	});
+</script>
+
+
+	
+</div>
+
+
+ <ul class="main-advert" style="padding-top:0px;padding-bottom:0px;">
+     
+	<li><a href="/Support/index.html">OTC交易全新上线</a></li>
+	<li>闪电购买：<input type="text" id="fastbuy" placeholder="&nbsp;请输入购买数量" style="font-size:15px;width:200px;height:30px;border-radius:5px;" /></li>
+	<button type="button" onclick="javascript:top.location='/Exchange';"style="background-color:#05C19E;height:35px;width:150px;font-size:16px;border:0px;border-radius:5px;color:#fff;"><B>立即买入</B></button>
+	
+</ul>
+
+<div style="background-color:#1F2636;">
+	<table width="100%" border="0" style="background-color:#1F2636;border-top:0.05px solid #363636;color:#fff;padding:10px;" readonly>
+		<tr>
+		<td>&nbsp;&nbsp;比特币  BTC/USDT</td>
+		<td>以太坊  ETH/USDT</td>
+		<td>柚子币  EOS/USDT</td>
+		<td>BIT积分 BIT/USDT</td>
+		<td>瑞波币 BIT/USDT</td>
+		<td>比特现金 BCH/USDT</td>
+		</tr>
+		<tr>
+		<td>&nbsp;&nbsp;主力指数 10.87%</td>
+		<td>主力指数 8.17%</td>
+		<td>主力指数 7.69%</td>
+		<td>主力指数 9.21%</td>
+		<td>主力指数 5.78%</td>
+		<td>主力指数 5.23%</td>
+		</tr>
+		
+
+	</table>
+	
+</div>
+
+
+
+
+
+
+<div class="main-table-box5" style="width:100%;padding-top:0px;">
+	<ul class="table-tab">
+		<li class="trade_moshi trade_qu_pai active" data="0" onclick="trade_qu(this)">USDT 交易</li><li class="trade_moshi trade_qu_pai " data="1" onclick="trade_qu(this)">BTC 交易</li><li class="trade_moshi trade_qu_pai " data="2" onclick="trade_qu(this)">ETH 交易</li><li class="trade_moshi trade_qu_pai " data="3" onclick="trade_qu(this)">RT 交易</li>	</ul>
+	<ul class="table-head" id="market_coin_tabs">
+		<li style="width: 15%"><i></i>交易对</li>
+		<li style="width: 16%"><i></i>最新价格</li>
+		<li style="width: 10%">24h 涨跌幅</li>
+		<li style="width: 16%"><i></i>24h 最高价</li>
+		<li style="width: 16%"><i></i>24h 最低价</li>
+		<li style="width: 20%"><i></i>24h 成交量</li>
+		<li style="width: 7%" class="tr">操作<i></i></li>
+	</ul>
+	<ul class="table-item coins_list" id="coins_list"></ul>
+</div>
+
+<div class="main-summary" style="width:100%;">
+	<h2 class="title">Global Blockchain Assets Trading Platform</h2>
+	<div class="summary-content">
+		<div class="item" style="width:25%;">
+			<img src="/home/static/picture/03.png"/>
+			<h3>系统可靠</h3>
+			<p>保障交易的安全、稳定、高效运行</p>
+			<p>全球顶级人才构成的精英团队</p>
+		</div>
+		<div class="item" style="width:25%;">
+			<img src="/home/static/picture/01.png" />
+			<h3>资金保障</h3>
+			<p>银行级数据加密，动态身份验证</p>
+			<p>冷钱包存储，金融级架构，多重安全防护</p>
+		</div>
+		<div class="item" style="width:25%;">
+			<img src="/home/static/picture/fl11_06.png" />
+			<h3>极致体验</h3>
+			<p>充提迅速、多国语言</p>
+			<p>高性能撮合交易引擎，快速交易体验</p>
+		</div>
+		<div class="item" style="width:25%;">
+			<img src="/home/static/picture/m51.png" />
+			<h3>专业服务</h3>
+			<p>专业的国际服务团队</p>
+			<p>及时响应用户问题，为您保驾护航</p>
+		</div>
+	</div>
+	<div> &nbsp;
+	</div>
+</div>
+
+
+
+<div class="main-summary" style="width:100%;background-color:#fff;">
+	<h2 class="title" style="color:#000;">随时随地 多平台终端交易</h2>
+	<h2 class="title" style="color:#000;">覆盖iOS、Android、Windows、Mac多个平台，支持全业务功能</h2>
+	<div class="summary-content" >
+		<div class="item" style="width:35%;background-color:#fff; text-align: right;">
+			<img src="/home/static/picture/a10.png"/>&nbsp;&nbsp;&nbsp;
+			<h3 style="font-size:16px;"><a href="/Index/index.html">安卓下载</a></h3>
+			<img src="/home/static/picture/a20.png" />&nbsp;&nbsp;&nbsp;
+			<h3 style="font-size:16px;"><a href="/Index/index.html">苹果下载</a></h3>
+		</div>
+
+		<div class="item" style="width:50%;background-color:#fff;">
+			<img src="/home/static/picture/iphonelogo.png" />
+		</div>
+	</div>
+	<div> &nbsp;
+	</div>
+</div>
+
+
+
+<div class="box-main-warings" style="width:100%;">
+	<div class="main-warings">
+		<img src="/home/static/picture/icon_waring.png" />
+		<span>数字资产是创新的投资产品，价格波动较大，具有较高的投资风险，请您投资前对数字资产充分认知，理性判断自己的投资能力，审慎做出投资决策。</span>
+	</div>
+</div>
+
+<script>
+function trends() {
+	$.getJSON('/ajax/index_b_trends?t=' + Math.random(), function (d) {
+		trends = d;
+		allcoin();
+	});
+}
+function allcoin(cb) {
+	var trade_qu_id = $('.table-tab .active').attr('data');
+	$.get('/ajax/allcoin_a/id/' + trade_qu_id + '?t=' + Math.random(), cb ? cb : function (data) {
+		var datas;
+		if (data.code == 1) { datas = data.url; }
+		renderPage(datas);
+		t = setTimeout('allcoin()', 5000);
+	}, 'json');
+}
+function renderPage(ary) {
+	var html = '';
+	for (var i in ary) {
+		ifcolor_1 = (ary[i][8] >= 0 ? 'btn-up' : 'btn-down');
+		ifcolor_2 = (ary[i][8] >= 0 ? 'icon-up' : 'icon-down');
+		html += '<li><dl><dt class="fl market" style="width: 15%"><i></i><a href="/trade/index/market/' + ary[i][9] + '/"><img src="/home/static/picture/fcaf3c7eac6844a798f655d206e9f925.gif' + ary[i][10] + '" width="22" height="22" /><span class="coin_name">' + ary[i][0] + '</span><span> / ' + ary[i][1] + '</span></a></dt><dd class="fl" style="width: 16%"><i></i>' + ary[i][2] + '</dd><dd class="fl float" style="width: 10%"><span class="' + ifcolor_1 + '"><i class="' + ifcolor_2 + '"></i>' + (parseFloat(ary[i][8]) < 0 ? '' : '+') + ((parseFloat(ary[i][8]) < 0.01 && parseFloat(ary[i][8]) > -0.01) ? "0.00" : (parseFloat(ary[i][8])).toFixed(2)) + '%</span></dd><dd class="fl" style="width: 16%"><i></i>' + ary[i][11] + '</dd><dd class="fl" style="width: 16%"><i></i>' + ary[i][12] + '</dd><dt class="fl deal" style="width: 20%"><div><p>' + ary[i][7] + ' ' + ary[i][0] + '</p><p>≈ ' + ary[i][5] + ' ' + ary[i][1] + '</p></div></dt><dd class="fl tr" style="width: 7%"><a href="/trade/index/market/' + ary[i][9] + '/"><img src="/home/static/picture/icon_operation.png" /></a><i></i></dd></dl></li>';
+		
+	}
+	$('#coins_list').html(html);
+}
+function trade_qu(o){
+	$('.trade_qu_pai').removeClass('active');
+	$(o).addClass('active');
+	allcoin();
+}
+trends();
+</script>
+<script>
+function Downloads() {
+	layer.msg("敬请期待");
+	return false;
+}
+</script>
+<script type="text/javascript" src="/home/static/js/swiper.animate1.0.3.min.js"></script>
+<div class="footer">
+	<div class="footer-content">
+		<div class="copyright-box" >
+			<!--<a href="/"><img src="/home/static/picture/logo.png" width="121" height="45" alt="" /></a>-->
+			<p style="font-size:14px;">Copyright © 2010-2019</p>
+		</div>
+
+		<div class="fc-box">
+			<div class="footer-menus">
+				<a href="/Support/index/articles/cid/6/id/15.html">关于我们</a>
+					<span class="line">/</span><a href="/Support/index.html">帮助中心</a>
+					<span class="line">/</span><a href="/Support/Pages/fee.html">交易费率</a>
+					<span class="line">/</span><a href="/Support/index/articles/cid/6/id/22.html">上币申请</a>
+					<span class="line">/</span><a href="/Support/index/articles/cid/7/id/18.html">用户协议</a>
+					<span class="line">/</span><a href="/Support/index/articles/cid/6/id/16.html">联系我们</a>
+					<span class="line">/</span><a href="/Support/index/categories/cid/1.html">平台公告</a>
+					<span class="line">/</span><a href="/Support">新手教程</a>
+					<span class="line">/</span><a href="">常见问题</a>
+					<span class="line">/</span><a href="">API文档</a>
+					<span class="line">/</span><a href="">法律声明</a>
+					<span class="line">/</span><a href="">加入我们</a>
+					<span class="line">/</span>			</div>
+			<div class="country-list">
+				<a href="/Index/index/LANG/en-us.html" title="English"><img src="/home/static/picture/icon_country1.jpg" /></a>
+				<a href="/Index/index/LANG/zh-cn.html" title="中文简体"><img src="/home/static/picture/icon_country2.jpg" /></a>
+			</div>
+		</div>
+	</div>
+</div>
+		
+<script type="text/javascript" src="/home/static/js/swiper-4.3.3.min.js"></script>
+<script>
+	$(function() {
+		var isShowLanguage= false;
+		var mySwiper = new Swiper('.swiper-container', {
+			loop: true,
+			observer: true,
+			grabCursor: true,
+			autoHeight: true,
+			preventClicks: false,
+			preventLinksPropagation: true,
+			paginationClickable: true,
+			slidesPerView : 4,
+			slidesPerGroup : 4,
+			spaceBetween : 30,
+			autoplay: {
+				delay: 8000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'bullets',
+				observer: true,
+				clickable :true,
+			},
+			on: {
+				init: function() {
+					swiperAnimateCache(this); //隐藏动画元素 
+					swiperAnimate(this); //初始化完成开始动画
+				},
+				slideChangeTransitionEnd: function() {
+					swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+				}
+			}
+		})
+
+		$(".language").click(function() {
+			if(isShowLanguage) {
+				$(".language-box").hide();
+				isShowLanguage = false;
+				return false;
+			}
+			$(".language-box").show();
+			isShowLanguage = true;
+		})
+		
+		$(".uuser").mouseover(function (){  
+            $(".uuser-box").show();
+			isShowLanguage = true;
+        }).mouseout(function (){  
+            $(".uuser-box").hide();
+			isShowLanguage = false;
+        });  
+			
+		$(".menu-tabs .language-box p").click(function() {
+			$(".language-box").hide();
+			isShowLanguage = false;
+		})
+		
+/*		$(".menu-tabs .uuser-box p").click(function() {
+			$(".uuser-box").hide();
+			isShowLanguage = false;
+		})*/
+		
+		$(".uuser-box").hover(function() {
+			$(".uuser-box").show();
+			isShowLanguage = true;
+		}, function () {
+        	$(".uuser-box").hide();
+			isShowLanguage = false;
+        })
+		
+		$(".swiper-container").mouseover(function() {
+			mySwiper.autoplay.stop();
+		}).mouseleave(function() {
+			mySwiper.autoplay.start();
+		})
+
+		document.getElementsByTagName("body")[0].addEventListener("click", function() {
+			if($(".menu-tabs .language-box").css("display")=="block") {
+				$(".language-box").hide();
+				setTimeout(function() {
+					isShowLanguage = false;
+				},300)
+			}
+			if($(".menu-tabs .uuser-box").css("display")=="block") {
+				$(".uuser-box").hide();
+				setTimeout(function() {
+					isShowLanguage = false;
+				},300)
+			}
+		}, true);
+	})
+</script>
+</body>
+</html>

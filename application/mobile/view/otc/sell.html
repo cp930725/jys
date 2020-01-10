@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {include file="public/head" /}
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0, shrink-to-fit=no">
+    <title>TM数字资产-全球区块链交易所-数字货币交易所,比特币交易所,以太坊交易所LBEX交易所-</title>
+    <meta name="Keywords" content="TM数字资产">
+    <meta name="Description" content="TM数字资产">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.css">
+    <link rel="stylesheet" href="/static/css/font_knvxvcnl354uz0k9.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/dropload.css" />
+    <style>
+        .mui-badge1 {
+            padding: 0px;
+            width: 65%;
+            float: right;
+            line-height: 42px;
+            font-size: 14px;
+        }
+
+        .mui-input-row {
+            margin-bottom: 10px;
+        }
+        label{
+            font-size:1rem;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="bar-top">
+        <div style="position: relative;">
+				<span class="iconfont icon-left"
+                      onclick="javascript:history.back();"></span>
+            <div>OTC交易</div>
+        </div>
+    </div>
+</header>
+<form class="mui-input-group" id="input_example">
+
+
+    <div class="mui-input-row">
+        <label>选择币种</label>
+        <a class="mui-navigate-right">
+                <span class="mui-badge1">
+                    <select class="mui-h5" style="margin:auto; color:#000;" name="coin" id="coin">
+                        {volist name="coin" id="vo"}
+                            <option value="{$vo.name}">{$vo.title}</option>
+                        {/volist}
+                    </select>
+                </span>
+        </a>
+    </div>
+
+
+    <div class="mui-input-row">
+
+        <label>出售数量</label>
+
+        <input type="text" class="mui-input-clear" placeholder="请输入出售数量" name="money" id="money">
+
+    </div>
+    <div class="mui-input-row">
+
+        <label>单价 (CNY)</label>
+
+        <input type="text" class="mui-input-clear" placeholder="请输入单价" name="price" id="price">
+
+    </div>
+    <div class="mui-input-row">
+        <label>支付方式</label>
+        <a class="mui-navigate-right">
+                <span class="mui-badge1">
+                    <select class="mui-h5" style="margin:auto; color:#000;" name="pay" id="pay">
+                        <option value="0">微信</option>
+                        <option value="1">支付宝</option>
+                        <option value="2">银行卡转账</option>
+                    </select>
+                </span>
+        </a>
+    </div>
+    <div class="mui-input-row">
+
+        <label>最小出售金额</label>
+
+        <input type="text" class="mui-input-clear" placeholder="请输入最小出售额" name="min" id="min">
+
+    </div>
+    <div class="mui-input-row">
+
+        <label>最大出售金额</label>
+
+        <input type="text" class="mui-input-clear" placeholder="请输入最大出售额" name="max" id="max">
+
+    </div>
+    <div class="mui-button-row">
+
+        <button type="button" id="submit"  class="mui-btn mui-btn-primary">确认</button  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <button type="button" class="mui-btn mui-btn-danger" onclick="return false;">取消</button>
+
+    </div>
+
+</form>
+
+
+{include file="public/footer" /}
+<script>
+    // mui.init();
+    // mui.plusReady(
+    //     function() {
+    //         document.getElementById("submit").addEventListener('tap', function(){
+    //              alert("点击了登录按钮");
+    //         });
+    //     }
+    //   );
+    $(function () {
+
+        $("#submit").click(function () {
+            var eachcount = 0;
+            var ip=$("#input_example input").length;
+            mui("#input_example input").each(function () {
+                //若当前input为空，则alert提醒
+                if (!this.value || this.value.trim() == "") {
+                    var label = this.previousElementSibling;
+                    mui.alert(label.innerText + "不允许为空");
+                    check = false;
+                    return false;
+                } else {
+                    // console.log($("#input_example").serialize())
+                    ++eachcount;
+                }
+            });
+            if (eachcount >= ip) {
+                mui.prompt("", "", "请输入交易密码", ["取消", "确认"], function (e) {
+                    // e.value 输入框的值
+                    // 1是确定 0是取消
+                    if (e.index == 1) {
+                        $.post('/mobile/Ajax/checkPayPwd', {data: e.value}, function (res) {
+                            if (res.code == 0) {
+                                mui.alert(res.msg);
+                                return false
+                            } else {
+                                $.ajax({
+                                    'url': '/mobile/otc/sellPost',
+                                    'type': 'POST',
+                                    'data': $("#input_example").serialize(),
+                                    'dataType': 'json',
+                                    'success': function (res) {
+                                        if (res.code == 1) {
+                                            mui.alert(res.msg);
+                                            location.href = '/mobile/otc/index';
+                                        } else {
+                                            mui.alert(res.msg);
+                                        }
+                                    }
+                                });
+                            }
+                        }, 'json');
+                    }
+                });
+            }
+            // 修改输入框类型为密码类型
+            document.querySelector('.mui-popup-input input').type='password' ;
+
+
+        })
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header2" /}
+    <script type="text/javascript" src="/layer/layer.js"></script>
+    <script type="text/javascript" src="/Home/js/jquery.cookies.2.2.0.js"></script>
+</head>
+<body class="blackbg">
+    <div id="container" class="logbg">
+         <div class="log_title">
+                    <span class="back"><a href="javascript:history.go(-1)"></a></span>
+                    {:lang('实名认证')}
+        </div>
+        <div class="useifor">
+        <table align="center">
+        <tbody>
+					<tr>
+						<th>{:lang('国籍')}</th>
+						<td>
+							<input type="text" id="regidnationality" class="select-1" value="{$user['idnationality']}" >
+                        </td>
+                        </tr>
+                        <tr>
+						<th>{:lang('姓名')}</th>
+						<td><input type="text" id="regtruename" class="select-1" value="{$user['truename']}" ></td>
+                    </tr>
+					<tr>
+						<th>{:lang('身份证号')}</th>
+						<td><input type="text" id="regidcard" class="select-1" value="{$user['idcard']}"></td>
+                    </tr>
+                    <tr>
+                    <th>{:lang('修改时间')}</th>
+                    <td>{$user['addtime']|addtime}</td>
+                    </tr>
+        </tbody>
+        </table>
+           
+        </div>
+        <div class="ifor_flow">
+            <h2>{:lang('修改实名认证')}</h2>
+            <p>{:lang('请提交您的身份证正面照片，身份证反面照片以以获得更高级别的资金权限。我们会严格保密您的身份信息，不会向第三方泄漏。工作时间我们会在两小时内审核。（周一至周五：9:00—17:00）')}
+            </p>
+            <if condition="($user['renzheng_yy'] neq NULL)">
+            <p style="color:#ff8800;">认证失败原因：{$user['renzheng_yy']|default=''}</p>
+            {/if}
+            <p>{:lang('审核标准')}</p>
+            <p>1.{:lang('证件请放在白纸上,并且身份证信息必须与初始认证信息一致。')}</p>
+            <p>2.{:lang('身份证字体清晰可见。')}</p>
+        </div>
+        <div class="ifor_flow">
+            <p>{:lang('身份证正面照')}({:lang('可不上传')})： </p>
+            <p>{notempty name="data1.img"}
+                    <!--没有图片显示默认图片-->
+                    <img id="up_img" onclick="getElementById('inputfile').click()" style="cursor:pointer;max-width:100%;" title="点击添加图片" alt="点击添加图片" src="/Upload/coin/{$data1.img}">
+                    {else/}
+                    <!--没有图片显示默认图片-->
+                    <img id="up_img" onclick="getElementById('inputfile').click()" style="cursor:pointer;max-width:100%;" title="点击添加图片" alt="点击添加图片" src="/Admin/images/addimg.png">
+                {/notempty}
+                <input type="hidden" id="img" name="img" value="{$data1.img|default=''}">
+                <input type="file" id="inputfile" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;" value=""/>
+                </p>
+            <p>{:lang('身份证背面照')}({:lang('可不上传')})：</p>
+            <p>{notempty name="data2.img"}
+                        <!--没有图片显示默认图片-->
+                        <img id="up_img2" onclick="getElementById('inputfile2').click()" style="cursor:pointer;max-width:100%;" title="点击添加图片" alt="点击添加图片" src="/Upload/coin/{$data2.img}">
+                        {else/}
+                        <!--没有图片显示默认图片-->
+                        <img id="up_img2" onclick="getElementById('inputfile2').click()" style="cursor:pointer;max-width:100%;" title="点击添加图片" alt="点击添加图片" src="/Admin/images/addimg.png">
+                    {/notempty}
+                    <input type="hidden" id="img2" name="img2" value="{$data2.img|default=''}">
+                    <input type="file" id="inputfile2" style="height:0;width:0;z-index: -1; position: absolute;left: 10px;top: 5px;" value=""/>
+                    </p>
+
+        </div>
+        <div class="logbot">
+          <input type="button" class="logbut" name="index_submit" id="loginSubmin" onclick="Update();" value="{:lang('提交认证')}" title="提交认证" >
+        </div>
+    </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //响应文件添加成功事件
+        $("#inputfile").change(function () {
+            //创建FormData对象
+            var data = new FormData();
+            //为FormData对象添加数据
+            $.each($('#inputfile')[0].files, function (i, file) {
+                data.append('upload_file' + i, file);
+            });
+            //发送数据
+            $.ajax({
+                url: '{:url("Ajax/imgUser")}',
+                type: 'POST',
+                data: data,
+                cache: false,
+                contentType: false,   //不可缺参数
+                processData: false,   //不可缺参数
+                success: function (data) {
+                    if (data) {
+                        $.trim(data);
+                        $('#up_img').attr("src", '/upload/idcard/' + $.trim(data));
+                        $('#img').val($.trim(data));
+                        $('#up_img').show();
+                    }
+                },
+                error: function () {
+                    alert('上传出错');
+                    $(".loading").hide(); //加载失败移除加载图片
+                }
+            });
+
+        });
+    });
+     $(document).ready(function () {
+        //响应文件添加成功事件
+        $("#inputfile2").change(function () {
+            //创建FormData对象
+            var data = new FormData();
+            //为FormData对象添加数据
+            $.each($('#inputfile2')[0].files, function (i, file) {
+                data.append('upload_file' + i, file);
+            });
+            //发送数据
+            $.ajax({
+                url: '{:url("Ajax/imgUser")}',
+                type: 'POST',
+                data: data,
+                cache: false,
+                contentType: false,   //不可缺参数
+                processData: false,   //不可缺参数
+                success: function (data) {
+                    if (data) {
+                        $.trim(data);
+                        $('#up_img2').attr("src", '/upload/idcard/' + $.trim(data));
+                        $('#img2').val($.trim(data));
+                        $('#up_img2').show();
+                    }
+                },
+                error: function () {
+                    alert('上传出错');
+                    $(".loading").hide(); //加载失败移除加载图片
+                }
+            });
+
+        });
+    });
+    // $(document).ready(function () {
+    //     //响应文件添加成功事件
+    //     $("#inputfile3").change(function () {
+    //         //创建FormData对象
+    //         var data = new FormData();
+    //         //为FormData对象添加数据
+    //         $.each($('#inputfile3')[0].files, function (i, file) {
+    //             data.append('upload_file' + i, file);
+    //         });
+    //         //发送数据
+    //         $.ajax({
+    //             url: '/Ajax/imgUser',
+    //             type: 'POST',
+    //             data: data,
+    //             cache: false,
+    //             contentType: false,   //不可缺参数
+    //             processData: false,   //不可缺参数
+    //             dataType:'json',
+    //             success: function (data) {
+    //                 if (data) {
+    //                     $.trim(data);
+    //                     $('#up_img3').attr("src", '/Upload/idcard/' + $.trim(data));
+    //                     $('#img3').val($.trim(data));
+    //                     $('#up_img3').show();
+    //                 }
+    //             },
+    //             error: function () {
+    //                 alert('上传出错');
+    //                 $(".loading").hide(); //加载失败移除加载图片
+    //             }
+    //         });
+
+    //     });
+    // });
+    function Update(){
+    var zhengmian=$("#img").val();
+    var beimian=$("#img2").val();
+    var idnationality = $("#regidnationality").val();
+	var idtype = 1;
+	var truename = $("#regtruename").val();
+	var idcard = $("#regidcard").val();
+    // var shouchi=$("#img3").val();
+    // if(zhengmian==""||zhengmian==null){
+    //   alert('{:lang('请上传证件正面照片')}');
+    //   return false;
+    // }
+    // if(beimian==""||beimian==null){
+    //   alert('{:lang('请上传证件反面照片')}');
+    //   return false;
+    // }
+    // if(shouchi==""||shouchi==null){
+    //   alert('请上传手持身份证照！');
+    //   return false;
+    // }
+    $.post("{:url('User/kyc1_Handle')}",{ idnationality: idnationality, idtype: idtype, truename: truename, idcard: idcard},function(data){
+		if(data.code == 1){
+			layer.msg(data.msg, { icon: 1 });
+		}else{
+			layer.msg(data.msg, { icon: 2 });
+			if (data.url) {
+				window.location = data.url;
+			}
+		}
+    },"json");
+    if(zhengmian==""||zhengmian==null||beimian==""||beimian==null){
+        return;
+    }
+    $.post("{:url('User/kyc2_Handle')}",{ idimg1: zhengmian, idimg2: beimian, idimg3: beimian },function(data){
+		if(data.code == 1){
+			layer.msg(data.msg, { icon: 1 });
+			window.setTimeout('window.location="{:url(\'Morefind/index\')}"',1000);
+		}else{
+			layer.msg(data.msg, { icon: 2 });
+			if (data.url) {
+				window.location = data.url;
+			}
+		}
+	},"json");
+
+}
+</script>
+
+</body>
+</html>

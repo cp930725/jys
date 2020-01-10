@@ -1,0 +1,62 @@
+<div class="bottom">
+    <ul>
+         <!--li style="width: 25%">
+            <a href="{:url('Index/index')}">
+                <img src="/mobile/images/home1.png" class="img1">
+                <img src="/mobile/images/home12.png" class="img2">
+                <p>{:lang('首页')}</p>
+            </a>
+        </li--> 
+        <li style="width: 25%">
+            <a href="{:url('Trade/trade_coin_list')}">
+                <img src="/mobile/images/home2.png" class="img1">
+                <img src="/mobile/images/home22.png" class="img2">
+                <p>{:lang('交易')}</p>
+            </a>
+        </li>
+
+        <li style="width: 25%">
+			<php>
+				if (LANG_SET == 'en-us') {
+					$nm = '中文版';
+					$pic = 'zh_HK.svg';
+					$usl = "{:url('?LANG=zh-cn')}";
+					$yw = 1;
+				} else {
+					$nm = 'English';
+					$pic = 'en_US.svg';
+					$usl = "{:url('?LANG=en-us')}";
+					$yw = 2;
+				}
+			</php>
+
+            <a {eq name="yw" value="1">href="{:url('?LANG=zh-cn')}"{else/}href="{:url('?LANG=en-us')}"{/eq}>
+            	<img class="img1" src="/New/{$pic}" />
+            	<p>{$nm}</p>
+            </a>
+        </li>
+		 <li style="width: 25%">
+			<a href="{:url('Find/index')}">
+				<img src="/mobile/images/menuicon5.png" class="img1">
+				<img src="/mobile/images/home42.png" class="img2">
+				<p>{:lang('发现')}</p>
+			</a>
+		</li>
+<!--        <li style="width: 25%">
+            <a href="http://otc.bwbcoin.com">
+                <img src="/mobile/images/menuicon5.png" class="img1">
+                <img src="/mobile/images/home32.png" class="img2">
+                <p>{:lang('C2C')}</p>
+            </a>
+        </li>-->
+         <li style="width: 25%">
+            <a href="{:url('User/index')}">
+                <img src="/mobile/images/home4.png" class="img1">
+                <img src="/mobile/images/home42.png" class="img2">
+                <p>{:lang('我的')}</p>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->

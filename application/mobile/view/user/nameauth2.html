@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header2" /}
+    <script type="text/javascript" src="/layer/layer.js"></script>
+    <script type="text/javascript" src="/Home/js/jquery.cookies.2.2.0.js"></script>
+</head>
+<body class="blackbg">
+    <div id="container" class="logbg">
+        <div class="log_title">
+            <span class="back"><a href="javascript:history.go(-1)"></a></span>
+            {:lang('实名认证')}
+        </div>
+        <div class="useifor">
+            {:lang('姓名：')}{$user.truename}<br/>
+            {:lang('证件类型：身份证')}<br/>
+            {:lang('身份证号：')}{$user.idcard}<br/>
+            {:lang('认证时间：')}{$user['addtime']|addtime}
+        </div>
+        <div class="ifor_flow">
+            <h2>{:lang('更改实名认证信息流程：')}</h2>
+            <p>1.{:lang('发送与上方认证信息一致的 身份证正反面照片或扫描件 以及手持身份证头部照给客服')}
+                <img src="/mobile/images/pic.jpg" style="display: block;max-width: 60%;margin:0 auto;margin-top: 10px;">
+            </p>
+            <p>2.{:lang('申请提交后，工作人员会在两小时内会进行审核。（注：工作时间）')}</p>
+            <p>3.{:lang('申请通过，证件认证处会显示审核认证成功。')}<br/>{:lang('申请失败，则请您根据提示信息重新提交申请')}</p>
+        </div>
+    </div>
+</body>
+</html>

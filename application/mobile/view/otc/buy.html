@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html data-dpr="1" style="font-size: 37.52px;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>购买详情</title>
+<link rel="shortcut icon" href="" type="image/x-icon">
+<style>
+@charset "utf-8"; 
+
+html {
+	color: #000;
+	background: #fff;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%
+}
+
+html * {
+	outline: 0;
+	-webkit-text-size-adjust: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+html,body {
+	font-family: sans-serif
+}
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
+	{
+	margin: 0;
+	padding: 0
+}
+
+input,select,textarea {
+	font-size: 100%
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+fieldset,img {
+	border: 0
+}
+
+abbr,acronym {
+	border: 0;
+	font-variant: normal
+}
+
+del {
+	text-decoration: line-through
+}
+
+address,caption,cite,code,dfn,em,th,var {
+	font-style: normal;
+	font-weight: 500
+}
+
+ol,ul {
+	list-style: none
+}
+
+caption,th {
+	text-align: left
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-size: 100%;
+	font-weight: 500
+}
+
+q:before,q:after {
+	content: ''
+}
+
+sub,sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline
+}
+
+sup {
+	top: -.5em
+}
+
+sub {
+	bottom: -.25em
+}
+
+a:hover {
+	text-decoration: underline
+}
+
+ins,a {
+	text-decoration: none
+}
+</style>
+<link rel="stylesheet" type="text/css" href="/static/css/style2.css">
+<link rel="stylesheet" type="text/css" href="/static/css/mdialog.css">
+<style type="text/css">
+.b_div {
+	height: 100%;
+	overflow: hidden;
+	background: #fcfcfc;
+}
+
+.b_div01 {
+	background-image: url(/static/images/buy_details_01.png);
+	background-size: 100% 100%;
+	height: 160px;
+}
+
+.b_div div {
+	width: 100%;
+	float: left;
+}
+
+.poster-info-cont {
+	margin-left: -8px;
+}
+
+.poster-info-item {
+	color: #fcfcfc;
+	text-align: center;
+	float: left;
+	width: 50%;
+	min-width: 50px;
+	margin-top: 25px;
+}
+
+.poster-info-item div {
+	line-height: 22px;
+}
+
+.b_div03 {
+	height: auto;
+	width: calc(100% -   1.0rem);
+	margin: -35px 15px 0px 15px;
+	background-color: #FFF;
+	border-radius: 10px;
+	padding-bottom: 20px;
+	-webkit-box-shadow: 0 6px 12px #e9e9e9;
+	box-shadow: 0 6px 12px #e9e9e9;
+}
+
+.b_div04 {
+	height: 50px;
+	margin: 20px 30px 0px 30px;
+	background-color: #f3f5f7;
+	border-radius: 30px;
+	text-align: center;
+	font-size: 20px;
+	background-color: #f08600;
+}
+
+.b_div05 {
+	width: calc(100% -   30px);
+	margin: 20px 15px 0px 15px;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.b_div03 span {
+	display: -moz-inline-box;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 30px;
+	padding-left: 15px;
+}
+
+.b_div03 ul li .text1 {
+	width: 30%;
+	color: #5c5d5e;
+}
+
+.b_div03 ul li .text2 {
+	width: 60%;
+	color: #2b2b2b;
+}
+
+.b_div03 ul li {
+	width: 100%;
+}
+
+.b_div03 ul li .tc1,.b_div03 ul li .tc2 {
+	position: relative;
+	background: #FFF;
+	width: auto;
+	padding: 0;
+	font-size: 15px;
+	line-height: 25px;
+}
+
+.b_div03 ul li .tc1 {
+	top: -4px;
+	left: 25px;
+}
+
+.b_div03 ul li .tc2 {
+	top: -4px;
+	left: 180px;
+}
+
+.b_div03 input {
+	-web-kit-appearance: none;
+	-moz-appearance: none;
+	border-radius: 30px;
+	border: 1px solid #c8cccf;
+	color: #6a6f77;
+	height: 45px;
+	width: 39%;
+	outline: 0;
+	padding-left: 10px;
+	float: left;
+	font-size: 15px;
+}
+
+.b_div03 ul li .icon_dddjy {
+	width: 38px;
+	height: 38px;
+	float: left;
+	margin-top: 5px;
+}
+
+.b_div04 .btn {
+	width: 100%;
+	display: inline-block;
+	padding-top: 10px;
+	color: white;
+	font-size: 16px;
+	line-height: 30px;
+}
+
+.b_div05 b {
+	color: #2b2b2b;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 25px;
+}
+
+.b_div05 span {
+	color: #5c5d5e;
+	line-height: 22px;
+}
+</style>
+</head>
+
+<body style="font-size: 12px;">
+	<div class="b_div">
+
+		<div class="title_bar b_div01">
+			<div class="back" onclick="window.history.back();"></div>
+			<div id="seid" style="left: calc(40% -   1.2rem);" class="title">182****5568</div>
+			<br>
+			<div class="poster-info-cont clear-float">
+				<span class="poster-info-item" style="display: none;">
+					<div id="cb1" class="item-d">0</div>
+					<div class="item-n">交易次數</div>
+				</span> <span class="poster-info-item">
+					<div id="cb2" class="item-d">0</div>
+					<div class="item-n">信任人數</div>
+				</span> <span class="poster-info-item">
+					<div id="cb3" class="item-d">0%</div>
+					<div class="item-n">好評度</div>
+				</span>
+			</div>
+		</div>
+		<div class="b_div03 row" style="width: calc(100% -   30px);">
+			<ul>
+				<li style="margin-top: 20px;"><span class="text1">报价</span> <span
+					class="text2" id="cm" style="color: red; font-size: 0.55rem;">{$data.price}						CNY</span></li>
+				<li><span class="text1">交易限额</span> <span class="text2"
+					id="cm1">{$data.min}-{$data.max}						CNY</span></li>
+				<li><span class="text1">付款方式</span> <span class="text2"
+					id="cm2">{eq name='data.pay' value='0'}微信{/eq}{eq name='data.pay' value='1'}支付宝{/eq}{eq name='data.pay' value='2'}银行卡转账{/eq}</span></li>
+				<li><span class="text1">剩余数量</span> <span class="text2"
+					id="cm2">{$data.remain_num}</span></li>
+
+
+				<li><span class="text2"
+					style="margin-top: 10px; font-size: 15px;">你想购买多少？</span></li>
+				<li style="height: 0;"><span class="text1 tc1" id="b_coin">CNY</span>
+					<span class="text1 tc2" id="c_coin">USDT</span>
+				</li>
+				<li style="margin-top: 10px;"><input id="amount" type="text"
+					style="margin-left: 8px;"> <img class="icon_dddjy" alt=""
+					src="/static/picture/icon_jyhs.png"> <input id="qty" type="text">
+
+					<input id="cmoney_h" type="hidden" value="0"> <input
+					id="cnum_h" type="hidden" value="0"></li>
+			</ul>
+		</div>
+		<div class="b_div04" style="width: calc(100% -   60px);">
+			{empty name=':userid()'}
+			 <span class="btn"
+				onclick="location.href='/mobile/login/index.html'">登陆</span>
+			{else/}
+			<span class="btn" id="buy" onclick="buy()">购买</span>
+			{/empty}
+		</div>
+		<div class="b_div05" style="width: calc(100% -   30px);">
+			<b>交易须知<br></b> <span>1.交易前请详细了解对方的交易信息。<br></span> <span>2.请通过平台进行沟通约定，并保存好相关聊天记录。<br></span>
+			<span>3.如遇到交易纠纷，可通过申诉来解决问题。<br></span> <span>4.在您发起交易请求后，数字资产被锁定在托管中，受到平台保护。如果您是买家，发起交易请求后，请在付款周期内付款并把交易标记为付款已完成。卖家在收到付款后将会放行处于托管中的数字资产。<br></span>
+			<span>5.交易前请阅读《平台服务条款》以及常见问题，交易指南等帮助文档。<br></span> <span>6.请注意欺诈风险，交易前请检查该用户收到的评价和相关信用信息，并对新近创建的账户多加留意。<br></span>
+			<span>7.托管服务保护网上交易的买卖双方。在发生争议的情况下，我们将评估所提供的所有信息，并将托管的数字资产放行给其合法所有者。<br></span>
+		</div>
+		<script src="/static/js/jquery-3.2.1.min.js"></script>
+		<script src="/static/js/tether.min.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+		<script src="/static/js/utils.js"></script>
+		<script src="/static/js/msg.js"></script>
+		<script src="/static/js/common.js"></script>
+		<script src="/static/js/user.js"></script>
+		<script>
+var type= "{$data.pay}";
+var price= "{$data.price}";
+var token= "67db3ea09622525a31ad38ddf12f0042";
+var btc= "0";//账户比特币数量
+var truban = "";
+var id = "{$data.userid}";
+$('#amount').bind('keyup change',function(){
+    var amount = $('#amount').val();
+    if(amount.indexOf(".") != "-1"){
+        var barr = amount.split(".");
+        var xiaoshu = barr[1].length;
+        if(xiaoshu>2){
+            var org = barr[1].substr(0,xiaoshu-1);
+            var xin = parseFloat(barr[0]+"."+org);
+            $("#amount").val(xin);
+        }
+    }
+    //转换成比特币 需要保留八位小数
+    btcnum=($('#amount').val()/price).toFixed(10);
+    btcnum=getnum(btcnum,8);
+    $('#qty').val(btcnum);
+});
+
+$('#qty').bind('keyup change',function(){
+    var amount = $('#qty').val();
+    if(amount.indexOf(".") != "-1"){
+        var barr = amount.split(".");
+        var xiaoshu = barr[1].length;
+        if(xiaoshu>8){
+            var org = barr[1].substr(0,xiaoshu-1);
+            var xin = parseFloat(barr[0]+"."+org);
+            $("#qty").val(xin);
+        }
+    }
+
+    //转换成比特币 需要保留八位小数
+    btcnum=($('#qty').val()*price).toFixed(4);
+    btcnum=getnum(btcnum,2);
+    $('#amount').val(btcnum);
+});
+function getnum(num,ss)
+{
+    if(num.indexOf(".") != "-1"){
+        var barr = num.split(".");
+        var org = barr[1].substr(0,ss);
+        xin = parseFloat(barr[0]+"."+org);
+        return xin;
+    }
+}
+//提交页面数据函数
+function buy()
+{	
+	 var money=$('#amount').val();//获取输入的金额
+     var num=$('#qty').val();//获取输入的数量
+     if(money && num)
+     {
+         //判断交易金额是否在规定区间
+         if(money<"{$data.min}" || money>'{$data.max}')
+         {
+             $.msg("交易限额 {$data.min}-{$data.max} CNY");
+             return false;
+         }
+         //如果出售，判断币值是否充足
+         if(type==0 && num>btc)
+         {
+             $.msg('你的账户余额不足，请充值！');
+             return false;
+         }
+     }else{
+         $.msg('请先输入你要交易的价格或数量！');
+     }
+    //提交数据
+    $.post("/mobile/Otc/buyPost", {
+        type: type,//广告类型ID
+        num: num,//交易数量
+        tid: "{$data.id}",//广告ID
+		sid: '{$data.userid}',
+		coin: '{$data.coin}',
+        money:money,//交易金额
+        token:token,//token
+        price:"{$data.price}"//广告价格
+    }, function (data) {
+        if(data.code ==1){
+            //alert(data.info);
+            $.msg(data.msg);
+			location.reload()
+			/*if(data.url){
+                window.location.href='/Order/orderinfo/type/'+(2-type)+'/id/'+data.url;
+            }*/
+        }else{
+            $.msg(data.msg);
+			if(data.url) {
+				//window.location.href=data.url;
+			}
+        }
+    }, 'json');
+}
+function bianji(){
+    tid=41;
+    if(type==2){
+        type=0;
+    }
+    location.href='/Newad/ediad/id/'+tid+'/type/'+type;
+}
+</script>
+
+	</div>
+</body>
+</html>

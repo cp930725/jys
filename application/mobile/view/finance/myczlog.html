@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {include file="public/header2" /}
+    <script type="text/javascript" src="/layer/layer.js"></script>
+    <script type="text/javascript" src="/Home/js/jquery.cookies.2.2.0.js"></script>
+</head>
+<body class="blackbg">
+    <div id="container" class="logbg">
+        <div class="log_title">
+            <span class="back"><a href="javascript:history.go(-1)"></a></span>
+            {:lang('充值记录')}
+        </div>
+        <span class="addbankbut">
+            <a href="{:url('Finance/mycz')}"><img src="/mobile/images/addbank.png">{:lang('充值')}</a>
+        </span>
+        <div class="chgbox">
+            <ul>
+
+
+            {empty name="list"}
+                <li>
+                    <div class="chglist_top" style="text-align: center;">
+                        <span class="state wait" style="float: none;color:#B7B6B6">
+                            {:lang('暂无充值记录')}
+                        </span>
+                    </div>
+                </li>
+            {else /}
+                {volist name="list" id="vo"}
+                    <li>
+                        <div class="rechargetop">
+                            {$vo.addtime|date='Y-m-d H:i:s',###}
+                            <span class="state wait" style="float: right;">
+                                {eq name="vo.status" value="0"}
+                                    {:lang('未付款')}
+                                    <a onclick="myczHuikuan({$vo['id']})" href="javascript:void(0)" style="    color: #2674FF!important;">{:lang('已汇款')}</a>
+                                {/eq}
+                                {eq name="vo.status" value="1"}
+                                    {:lang('充值成功')}
+                                {/eq}
+                                {eq name="vo.status" value="2"}
+                                    {:lang('人工到账')}
+                                {/eq}
+                                {eq name="vo.status" value="3">
+                                    {:lang('处理中')}
+                                {/eq}
+                                {eq name="vo.status" value="4">
+                                    {:lang('已过期')}
+                                {/eq}</span>
+                        </div>
+                        <table class="chglist_bot">
+                            <tr>
+                                <th>{:lang('充值订单')}</th>
+                                <th>{:lang('充值金额')}</th>
+                                <th>{:lang('到账金额')}</th>
+                                <th rowspan="2" width="10%">
+                                    <a onclick="myczChakan({$vo['id']})" href="javascript:void(0)"><img src="/mobile/images/rightarrow.png"></a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>{$vo.tradeno}</td>
+                                <td>¥{$vo['num']|default="0.00"}</td>
+                                <td>¥{$vo['mum']|default="0.00"}</td>
+                            </tr>
+                        </table>
+                    </li>
+                {/volist}
+            {/empty}
+            </ul>
+            <div class="pages">{$page}</div>
+        </div>
+        <script>
+            $("#status-selectTest").change(function () {
+                var status = $("#status-selectTest option:selected").val();
+                window.location = '/Finance/mycz/status/' + status + '/.html';
+            });
+
+
+            function myczHuikuan(id) {
+                $.post("{:url('Finance/myczHuikuan')}", {id: id}, function (data) {
+                    if (data.code == 1) {
+                        layer.msg(data.msg, {icon: 1});
+                        window.location.reload();
+                    } else {
+                        layer.msg(data.msg, {icon: 2});
+                    }
+                }, "json");
+            }
+
+            function myczChakan(id) {
+
+                    // layer.open({
+                    //     title: '人民币充值',
+                    //     type: 2,
+                    //     area: ['650px', '500px'],
+                    //     content: ["{:url('Pay/mycz')}?id=" + id, 'no']
+                    // });
+                    window.location ="{:url('Pay/mycz')}?id=" + id;
+
+            }
+        </script>
+        {include file="public/footer" /}
+    </div>
+</body>
+</html>

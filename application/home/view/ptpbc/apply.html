@@ -1,0 +1,50 @@
+{include file="public/header_new" /}
+
+<style>
+    .aply-desc {
+        color: #666;
+
+        font-size: 14px;
+    }
+    .aply-desc dd {
+        margin-top: 10px;
+    }
+</style>
+	<ul class="main-advert m-top100">
+		{volist name="news_list1" id="vo"}
+			<li><a href="{:url('Article/detail','id='.$vo['id'])}">{$vo['title']|msubstr=0,17,'utf-8'}</a></li>
+			<span>/</span>
+		{/volist}
+		<li><a href="#"> {:lang("更多公告")}</a></li>
+	</ul>
+<div class="usernewout">
+    
+    <div class="usncont">
+        <!-- 左侧导航 -->
+        <include file="Ptpbc:left" />
+        <!-- 右侧内容 -->
+        <div class="usnc_right">
+            <h1> {:lang('ptpbc_apply_merchant_desc')}</h1>
+            <div style="padding: 40px;">
+                <dl class="aply-desc" style="float: left;">
+                    <dt> {:lang('优势')}:</dt>
+                    <dd> -  {:lang('优质订单')}</dd>
+                    <dd> -  {:lang('丰厚利差')}</dd>
+                    <dd> -  {:lang('市场透明')}</dd>
+                    <dd> -  {:lang('平台担保，有保障')}</dd>
+                    <dd> -  {:lang('订单实时结算')}</dd>
+                </dl>
+                <dl class="aply-desc" style="float: right;">
+                    <dt> {:lang('申请发送邮箱至')}：support@artschain.com</dt>
+                    <dd> {:lang('提交材料包括')}：</dd>
+                    <dd> -  {:lang('个人联系方式（手机号、微信号）')}</dd>
+                    <dd> -  {:lang('手持身份证照')}</dd>
+                    <dd> -  {:lang('数字资产拥有量及证明')}</dd>
+                    <dd> -  {:lang('个人简介')}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{include file="public/footer" /}
